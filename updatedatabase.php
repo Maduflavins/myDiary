@@ -1,0 +1,10 @@
+<?php 
+    session_start();
+    if(array_key_exists("content", $_POST)){
+        include("connection.php");
+
+        $query = "UPDATE users SET diary = '".msqli_real_escape_string($link, $POST['content'])."' WHERE id = ".mysqli_real_escape_string($link, $_SESSION['id'])."LIMIT 1";
+        msqli_query($link, $quey);
+            
+    }
+?>
